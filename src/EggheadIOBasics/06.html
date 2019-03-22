@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/vanilla-tilt/1.6.1/vanilla-tilt.min.js"></script>
+    <title>Document</title>
+    <style>
+      .totally-centered {
+        border: 1px solid #000000;
+        height: 100px;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .tilt-child {
+        width: 300px;
+        height: 200px;
+        background-image: linear-gradient(
+          to right,
+          rgba(255, 0, 0, 0),
+          rgba(255, 0, 0, 1)
+        );
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Interpolation, JSX</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+      const rootElement = document.querySelector("#root");
+      class Tilt extends React.Component {
+        componentDidMount() {
+          VanillaTilt.init(this.rootNode, {
+            max: 35,
+            speed: 300,
+            glare: false,
+            "max-glare": 1,
+            reverse: false,
+            perspective: 1000,
+            scale: 1,
+            transition: true,
+            axis: null,
+            reset: true,
+            gyroscope: true,
+            gyroscopeMinAngleX: -45,
+            gyroscopeMaxAngleX: 45,
+            gyroscopeMinAngleY: -45,
+            gyroscopeMaxAngleY: 45,
+            easing: "cubic-bezier(.03,.98,.52,.99)",
+            "glare-prerender": false,
+            "mouse-event-element": null
+          });
+        }
+        render() {
+          return (
+            <div className="tilt-root">
+              <div ref={node => (this.rootNode = node)} className="tilt-child">
+                <React.Fragment {...this.props} />
+              </div>
+            </div>
+          );
+        }
+      }
+      const ele = (
+        <div>
+          <Tilt>
+            <div className="totally-centered">vanilla-tilt.js</div>
+          </Tilt>
+        </div>
+      );
+      ReactDOM.render(ele, rootElement);
+    </script>
+  </body>
+</html>

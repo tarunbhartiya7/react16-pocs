@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Interpolation, JSX</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+      const rootElement = document.querySelector("#root");
+      const textContent = "interpolation";
+      //   const ele = <div className="container">Hello JSX and React</div>;
+      //   const ele = <div className="container">{textContent}</div>;
+      //   const ele = <div className="container">{(() => textContent)()}</div>;
+      const props = {
+        className: "container",
+        children: "Hello Props"
+      };
+      const ele = <div {...props} />;
+      //   Note: In JSX terms the attributes of elements are known as props
+      ReactDOM.render(ele, rootElement);
+    </script>
+  </body>
+</html>

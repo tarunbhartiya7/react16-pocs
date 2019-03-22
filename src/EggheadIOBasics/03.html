@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <script
+      crossorigin
+      src="https://unpkg.com/react@16/umd/react.production.min.js"
+    ></script>
+    <script
+      crossorigin
+      src="https://unpkg.com/react-dom@16/umd/react-dom.production.min.js"
+    ></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prop-types/15.7.2/prop-types.js"></script>
+    <script src="https://unpkg.com/babel-standalone@6.26.0/babel.min.js"></script>
+    <title>Reusable component and Proptypes</title>
+  </head>
+  <body>
+    <h1>Reusable component and Proptypes</h1>
+    <div id="root"></div>
+    <script type="text/babel">
+      const rootElement = document.querySelector("#root");
+      const Message = props => <div>{props.children}</div>;
+      const SayHello = props => (
+        <div>
+          Hello {props.firstName} {props.lastName}
+        </div>
+      );
+      SayHello.propTypes = {
+        firstName: PropTypes.string.isRequired,
+        lastName: PropTypes.string
+      };
+      //   Note: You can add static proptypes to the class component
+      class SayHelloAsClass extends React.Component {
+        static propTypes = {
+          firstName: PropTypes.string.isRequired
+        };
+        render() {
+          const { firstName } = this.props;
+          return <div>Class component {firstName}</div>;
+        }
+      }
+      const ele = (
+        <div className="container">
+          <Message>
+            Hello World
+            <Message>Hello World</Message>
+          </Message>
+        </div>
+      );
+      const propEle = <SayHello lastName={true} />;
+      //   ReactDOM.render(ele, rootElement);
+      ReactDOM.render(propEle, rootElement);
+    </script>
+  </body>
+</html>

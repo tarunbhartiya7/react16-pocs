@@ -1,0 +1,17 @@
+[
+    {
+        "id": 1,
+        "title": "Laughter Theory",
+        "Rating": 4.5
+    },
+    {
+        "id": 2,
+        "title": "The Intelligent Investor",
+        "Rating": 3.9
+    },
+    {
+        "id": 3,
+        "title": "The King",
+        "Rating": 3
+    }
+]

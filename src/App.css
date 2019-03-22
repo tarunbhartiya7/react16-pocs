@@ -51,3 +51,7 @@ input[type=checkbox]:focus {
   color: #cdcdcd;
   text-decoration: line-through;
 }
+
+.hidden {
+  display: none;
+}

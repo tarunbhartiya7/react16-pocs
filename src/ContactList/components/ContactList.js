@@ -1,4 +1,4 @@
-import React, { Component } from 'react'
+import React, { Component } from 'react';
 
 export default class ContactList extends Component {
     state = {
@@ -43,7 +43,7 @@ export default class ContactList extends Component {
         e.preventDefault();
         this.setState(prevState => {
             return {
-                contactList: [...prevState.contactList, {...prevState.contact, id: prevState.id }],
+                contactList: [...prevState.contactList, { ...prevState.contact, id: prevState.id }],
                 id: prevState.id + 1
             }
         })
@@ -54,7 +54,7 @@ export default class ContactList extends Component {
         let index = this.state.contactList.findIndex(item => item.id === id)
         this.setState(prevState => {
             return {
-                contactList: [...prevState.contactList.slice(0, index), ...prevState.contactList.slice(index+1)]
+                contactList: [...prevState.contactList.slice(0, index), ...prevState.contactList.slice(index + 1)]
             }
         })
     }
@@ -77,7 +77,7 @@ export default class ContactList extends Component {
                 contactList: [
                     ...prevState.contactList.slice(0, index),
                     prevState.contact,
-                    ...prevState.contactList.slice(index+1)
+                    ...prevState.contactList.slice(index + 1)
                 ]
             }
         })
@@ -134,9 +134,9 @@ export default class ContactList extends Component {
                             <td>
                                 <button className="btn btn-info" onClick={this.updateContact}>Update</button>
                                 &nbsp;&nbsp;
-                                <button 
-                                    disabled={!this.state.contact.name && !this.state.contact.email && !this.state.contact.phone} 
-                                    className="btn btn-info" 
+                                <button
+                                    disabled={!this.state.contact.name && !this.state.contact.email && !this.state.contact.phone}
+                                    className="btn btn-info"
                                     onClick={this.resetForm}
                                 >
                                     Clear
