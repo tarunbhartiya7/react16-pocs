@@ -1,7 +1,8 @@
 import React from "react";
 import ReactDOM from "react-dom";
+import ImageSlider from "./ImageSlider/components/ImageSlider";
 // import InnerHTML from "./InnerHTML";
-import AuthorQuiz from "./AuthorQuiz/components/AuthorQuiz";
+// import AuthorQuiz from "./AuthorQuiz/components/AuthorQuiz";
 // import App from "./App"
 // import FetchCallExample from "./FetchAPI/components/FetchCallExample";
 // import BooksApp from "./BooksApp/components/BooksApp";
@@ -19,7 +20,7 @@ import AuthorQuiz from "./AuthorQuiz/components/AuthorQuiz";
 // ReactDOM.render(<FormsExample />, document.getElementById("root"));
 // ReactDOM.render(<ContactList />, document.getElementById("root"));
 // ReactDOM.render(<BooksApp />, document.getElementById("root"));
-// ReactDOM.render(<ImageSlider />, document.getElementById("root"));
+ReactDOM.render(<ImageSlider />, document.getElementById("root"));
 // ReactDOM.render(<FetchRandomUser />, document.getElementById("root"));
 // ReactDOM.render(<Root />, document.getElementById("root"));
 // ReactDOM.render(<ReduxDemo />, document.getElementById("root"));
@@ -28,4 +29,4 @@ import AuthorQuiz from "./AuthorQuiz/components/AuthorQuiz";
 //   <InnerHTML dangerous="<strong>HELLO WORLD</strong>" />,
 //   document.getElementById("root")
 // );
-ReactDOM.render(<AuthorQuiz />, document.getElementById("root"));
+// ReactDOM.render(<AuthorQuiz />, document.getElementById("root"));

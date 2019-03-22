@@ -1,13 +1,19 @@
 ## Screenshots
 
-contactlist => 
+contactlist =>
 <img width="1188" alt="Screen Shot 2019-03-11 at 11 22 03 PM" src="https://user-images.githubusercontent.com/20270023/54145721-8ae95580-4454-11e9-8bea-bb9045aa113e.png">
 
-Basic Forms => 
+Basic Forms =>
 <img width="432" alt="Screen Shot 2019-03-11 at 11 26 44 PM" src="https://user-images.githubusercontent.com/20270023/54146080-385c6900-4455-11e9-8098-459c7bd6d099.png">
 
 Todo App=>
 <img width="603" alt="Screen Shot 2019-03-11 at 11 28 40 PM" src="https://user-images.githubusercontent.com/20270023/54146195-73f73300-4455-11e9-8f50-5d471f473948.png">
+
+Image Slider
+<img width="320" alt="Screen Shot 2019-03-22 at 9 03 20 PM" src="https://user-images.githubusercontent.com/20270023/54834397-17fa9d00-4ce6-11e9-9261-53d5feaa4f26.png">
+
+Refs
+<img width="364" alt="Screen Shot 2019-03-22 at 9 00 43 PM" src="https://user-images.githubusercontent.com/20270023/54834450-382a5c00-4ce6-11e9-8ca7-86c9d4eef0dd.png">
 
 ## For learning react:
 
