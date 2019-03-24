@@ -2,12 +2,12 @@ export default function booksData() {
   return [
     {
       id: 1,
-      title: "Table Tennis",
+      title: "Javascript",
       rating: 5
     },
     {
       id: 2,
-      title: "Pool",
+      title: "React",
       rating: 4
     }
   ];

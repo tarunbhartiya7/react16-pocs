@@ -7,11 +7,11 @@ import {
   Modal,
   ModalBody,
   ModalFooter,
-  ModalHeader,
-  Table
+  ModalHeader
 } from "reactstrap";
 import shortid from "shortid";
 import booksData from "../booksData";
+import BooksTable from "./BooksTable";
 
 export default class BooksApp extends Component {
   constructor(props) {
@@ -22,6 +22,8 @@ export default class BooksApp extends Component {
     this.closeModal = this.closeModal.bind(this);
     this.resetForm = this.resetForm.bind(this);
     this.submitForm = this.submitForm.bind(this);
+    this.editBook = this.editBook.bind(this);
+    this.removeBookFromList = this.removeBookFromList.bind(this);
   }
 
   state = {
@@ -33,12 +35,6 @@ export default class BooksApp extends Component {
     booksList: booksData(),
     update: false
   };
-
-  // componentDidMount = async () => {
-  //     let res = await fetch('https://jsonplaceholder.typicode.com/posts')
-  //     let body = await res.json()
-  //     console.log(body)
-  // }
 
   toggle() {
     this.setState(prevState => ({
@@ -149,44 +145,11 @@ export default class BooksApp extends Component {
         </Button>
         <br />
         <br />
-        <Table>
-          <thead>
-            <tr>
-              <th>#</th>
-              <th>Title</th>
-              <th>Rating</th>
-              <th>Actions</th>
-            </tr>
-          </thead>
-          <tbody>
-            {this.state.booksList.map((book, index) => {
-              return (
-                <tr key={book.id}>
-                  <th scope="row">{index + 1}</th>
-                  <td>{book.title}</td>
-                  <td>{book.rating}</td>
-                  <td>
-                    <Button
-                      onClick={this.editBook.bind(this, book)}
-                      color="success"
-                      size="sm"
-                      className="mr-2"
-                    >
-                      Edit
-                    </Button>
-                    <Button
-                      onClick={this.removeBookFromList.bind(this, book.id)}
-                      color="danger"
-                      size="sm"
-                    >
-                      Delete
-                    </Button>
-                  </td>
-                </tr>
-              );
-            })}
-          </tbody>
-        </Table>
+        <BooksTable
+          bookslist={this.state.booksList}
+          edit={this.editBook}
+          remove={this.removeBookFromList}
+        />
         <Modal
           isOpen={this.state.modal}
           toggle={this.toggle}
