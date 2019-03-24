@@ -1,16 +1,10 @@
 import React, { Component } from "react";
-import {
-  Button,
-  FormGroup,
-  Input,
-  Label,
-  Modal,
-  ModalBody,
-  ModalHeader
-} from "reactstrap";
+import { Button, Modal } from "reactstrap";
 import shortid from "shortid";
 import booksData from "../booksData";
+import BooksModalBody from "./BooksModalBody";
 import BooksModalFooter from "./BooksModalFooter";
+import BooksModalHeader from "./BooksModalHeader";
 import BooksTable from "./BooksTable";
 
 export default class BooksApp extends Component {
@@ -141,31 +135,11 @@ export default class BooksApp extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.closeModal}>Add a new book</ModalHeader>
-          <ModalBody>
-            <form>
-              <FormGroup>
-                <Label for="bookTitle">Title</Label>
-                <Input
-                  value={this.state.book.title}
-                  onChange={this.handleChange}
-                  type="text"
-                  name="title"
-                  id="bookTitle"
-                />
-              </FormGroup>
-              <FormGroup>
-                <Label for="rating">Rating</Label>
-                <Input
-                  value={this.state.book.rating}
-                  onChange={this.handleChange}
-                  type="number"
-                  name="rating"
-                  id="rating"
-                />
-              </FormGroup>
-            </form>
-          </ModalBody>
+          <BooksModalHeader closeModal={this.closeModal} />
+          <BooksModalBody
+            handleChange={this.handleChange}
+            book={this.state.book}
+          />
           <BooksModalFooter
             updateflag={this.state.update}
             update={this.updateBook}
