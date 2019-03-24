@@ -6,11 +6,11 @@ import {
   Label,
   Modal,
   ModalBody,
-  ModalFooter,
   ModalHeader
 } from "reactstrap";
 import shortid from "shortid";
 import booksData from "../booksData";
+import BooksModalFooter from "./BooksModalFooter";
 import BooksTable from "./BooksTable";
 
 export default class BooksApp extends Component {
@@ -21,7 +21,7 @@ export default class BooksApp extends Component {
     this.handleChange = this.handleChange.bind(this);
     this.closeModal = this.closeModal.bind(this);
     this.resetForm = this.resetForm.bind(this);
-    this.submitForm = this.submitForm.bind(this);
+    this.addBook = this.addBook.bind(this);
     this.editBook = this.editBook.bind(this);
     this.removeBookFromList = this.removeBookFromList.bind(this);
   }
@@ -94,7 +94,7 @@ export default class BooksApp extends Component {
     this.closeModal();
   }
 
-  submitForm(e) {
+  addBook(e) {
     e.preventDefault();
     this.setState(prevState => {
       return {
@@ -123,20 +123,6 @@ export default class BooksApp extends Component {
   }
 
   render() {
-    let button;
-    if (this.state.update) {
-      button = (
-        <Button color="primary" onClick={this.updateBook}>
-          Update Book
-        </Button>
-      );
-    } else {
-      button = (
-        <Button color="primary" onClick={this.submitForm}>
-          Add Book
-        </Button>
-      );
-    }
     return (
       <div className="container">
         <h1>Books App</h1>
@@ -155,9 +141,9 @@ export default class BooksApp extends Component {
           toggle={this.toggle}
           className={this.props.className}
         >
-          <ModalHeader toggle={this.toggle}>Add a new book</ModalHeader>
+          <ModalHeader toggle={this.closeModal}>Add a new book</ModalHeader>
           <ModalBody>
-            <form onSubmit={this.submitForm}>
+            <form>
               <FormGroup>
                 <Label for="bookTitle">Title</Label>
                 <Input
@@ -180,12 +166,12 @@ export default class BooksApp extends Component {
               </FormGroup>
             </form>
           </ModalBody>
-          <ModalFooter>
-            {button}{" "}
-            <Button color="secondary" onClick={this.closeModal}>
-              Cancel
-            </Button>
-          </ModalFooter>
+          <BooksModalFooter
+            updateflag={this.state.update}
+            update={this.updateBook}
+            cancelModal={this.closeModal}
+            add={this.addBook}
+          />
         </Modal>
       </div>
     );
